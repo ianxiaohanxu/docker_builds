@@ -1,0 +1,28 @@
+nginx:
+  build:  ./dockerfiles/nginx
+  net:  provider_net
+  links:
+   - rest:rest
+   - prov:prov
+  ports:
+   - "8000:8000"
+rest:
+  build:  ./dockerfiles/rest
+  net:  provider_net
+  links:
+   - postgres_db:db
+  volumes:
+   - ./workspace/gather-rest:/code
+  command: [bash, /code/setup_rest.sh]
+prov:
+  build:  ./dockerfiles/prov
+  net:  provider_net
+  links:
+   - rest:rest
+   - postgres_db:db
+  volumes:
+   - ./workspace/gather-prov:/code
+  command: [bash, /code/setup_prov.sh]
+postgres_db:
+  image:  postgres
+  net:  provider_net
