@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -d dockerfiles/nginx/nginx ]; then
+    mkdir dockerfiles/nginx/nginx
+fi
+
 mkdir workspace
 cd workspace
 git clone git@git.gatherhealth.com:gather/gather-rest.git
