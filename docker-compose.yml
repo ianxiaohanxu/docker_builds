@@ -23,6 +23,16 @@ prov:
   volumes:
    - ./workspace/gather-prov:/code
   command: [bash, /code/setup_prov.sh]
+test:
+  build:  ./dockerfiles/test
+  net:  provider_net
+  links:
+   - rest:rest
+   - prov:prov
+   - nginx:nginx
+  volumes:
+   - ./workspace/gather-tests:/code
+  command: [bash, /code/setup_test.sh]
 postgres_db:
   image:  postgres
   net:  provider_net
