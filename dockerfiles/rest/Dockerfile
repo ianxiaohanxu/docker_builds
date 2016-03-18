@@ -4,7 +4,7 @@ EXPOSE      8081
 WORKDIR     /code
 COPY        sources.list /etc/apt/
 COPY        .ssh /root/.ssh/
-RUN	    chmod 400 /root/.ssh/id_rsa
+RUN	        chmod 400 /root/.ssh/id_rsa
 COPY        dev_reset /root/python_modules/dev_reset/
 RUN         apt-get update && apt-get install -y --force-yes postgresql-client expect libyaml-dev
 RUN         pip install --upgrade pip

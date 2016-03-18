@@ -8,13 +8,13 @@ pip install -r requirements/dev.txt
 
 # Drop old database
 if
-! dropdb -U postgres -h provider_postgres_db_1 gather_prov
+! dropdb -U postgres -h db gather_prov
 then
 echo "Notice: gather_prov db wasn't drop."
 fi
 
 # Create new database
-createdb -U postgres -h provider_postgres_db_1 gather_prov
+createdb -U postgres -h db gather_prov
 
 # Set up database
 # ./manage.py syncdb

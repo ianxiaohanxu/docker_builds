@@ -9,23 +9,23 @@ export PYTHONPATH
 pip install -r requirements/dev.txt
 
 # Drop old database
-psql -U postgres -h provider_postgres_db_1 -c "create extension hstore" template1
+psql -U postgres -h db -c "create extension hstore" template1
 
 if
-! dropdb -U postgres -h provider_postgres_db_1 gather_rest
+! dropdb -U postgres -h db gather_rest
 then
 echo "Notice: gather_rest db wasn't drop."
 fi
 
 if 
-! dropdb -U postgres -h provider_postgres_db_1 gather_demo
+! dropdb -U postgres -h db gather_demo
 then
 echo "Notice: gather_demo db wasn't drop."
 fi
 
 # Create new database
-createdb -U postgres -h provider_postgres_db_1 gather_demo
-createdb -U postgres -h provider_postgres_db_1 gather_rest
+createdb -U postgres -h db gather_demo
+createdb -U postgres -h db gather_rest
 
 # Set up database
 # ./manage.py syncdb

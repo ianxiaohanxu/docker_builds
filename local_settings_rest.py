@@ -12,14 +12,14 @@ class Slave_alex(Slave):
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'gather_rest',
             'USER': 'postgres',
-            'HOST': 'provider_postgres_db_1',
+            'HOST': 'db',
             'PORT': '5432',
         },
         'demo': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'gather_demo',
             'USER': 'postgres',
-            'HOST': 'provider_postgres_db_1',
+            'HOST': 'db',
             'PORT': '5432',
         },
     }

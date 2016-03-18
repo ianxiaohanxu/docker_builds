@@ -23,7 +23,7 @@ cp ./local_settings_rest.py ./workspace/gather-rest/shaman_dm/local_settings.py
 cp ./local_settings_prov.py ./workspace/gather-prov/shaman_prov/local_settings.py
 
 #Create network for docker
-docker network create -d bridge provider_net
+#docker network create -d bridge provider_net
 
 #Docker compose setup
 docker-compose build
