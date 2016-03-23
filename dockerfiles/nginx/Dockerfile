@@ -1,3 +1,3 @@
-FROM        ficusio/openresty:latest
+FROM        nginx:latest
 MAINTAINER  Alex Gao (alex@gatherhealth.com)
-COPY        ./nginx.conf /opt/openresty/nginx/conf/
+COPY        ./nginx.conf /etc/nginx/
